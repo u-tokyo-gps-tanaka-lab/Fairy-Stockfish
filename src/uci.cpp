@@ -413,6 +413,15 @@ void UCI::loop(int argc, char* argv[]) {
           is.seekg(0);
           position(pos, is, states);
       }
+#if 1
+      else if (token == "generate_moves") {
+        sync_cout << "";
+        for (const auto& m: MoveList<LEGAL>(pos)) {
+            std::cout << UCI::move(pos, m) << " ";
+        }
+        std::cout << sync_endl;
+      }
+#endif          
       else if (!token.empty() && token[0] != '#')
           sync_cout << "Unknown command: " << cmd << sync_endl;
 
