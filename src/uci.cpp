@@ -415,7 +415,7 @@ void UCI::loop(int argc, char* argv[]) {
       }
 #if 1
       else if (token == "generate_moves") {
-        sync_cout << "";
+        sync_cout << "movelist" << " ";
         for (const auto& m: MoveList<LEGAL>(pos)) {
             std::cout << UCI::move(pos, m) << " ";
         }
